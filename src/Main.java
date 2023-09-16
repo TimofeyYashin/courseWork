@@ -56,12 +56,12 @@ public class Main {
     }
 
     public static String averageSalary(Employee[] emp) {
-        int sum = 0;
-        double average = 0;
+        double sum = 0;
+        double average;
         for (Employee employee : emp) {
             sum = sum + employee.getSalary();
-            average = (double) sum / emp.length;
         }
+        average = sum / emp.length;
         return "Cреднее значение зарплат: " + average;
     }
 
