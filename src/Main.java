@@ -13,11 +13,61 @@ public class Main {
         emp[9] = new Employee("Журавлев Елисей Богданович", 5, 43000);
         emp[5].setSalary(50000);
         emp[4].setDepartment(3);
-        Employee.list(emp);
-        System.out.println(Employee.sum(emp));
-        System.out.println(Employee.minSalary(emp));
-        System.out.println(Employee.maxSalary(emp));
-        System.out.println(Employee.averageSalary(emp));
-        Employee.name(emp);
+        list(emp);
+        System.out.println(sum(emp));
+        System.out.println(minSalary(emp));
+        System.out.println(maxSalary(emp));
+        System.out.println(averageSalary(emp));
+        name(emp);
+    }
+
+    public static void list(Employee[] emp) {
+        for (Employee e : emp) {
+            System.out.println(e);
+        }
+    }
+
+    public static String sum(Employee[] emp) {
+        int sum = 0;
+        for (Employee employee : emp) {
+            sum = sum + employee.getSalary();
+        }
+        return "Cуммa затрат на зарплаты в месяц - " + sum;
+    }
+
+    public static String minSalary(Employee[] emp) {
+        Employee minEmployee = emp[0];
+        for (Employee employee : emp) {
+            if (employee.getSalary() < minEmployee.getSalary()) {
+                minEmployee = employee;
+            }
+        }
+        return "Сотрудник с минимальной зарплатой: " + minEmployee;
+    }
+
+    public static String maxSalary(Employee[] emp) {
+        Employee maxEmployee = emp[0];
+        for (Employee employee : emp) {
+            if (employee.getSalary() > maxEmployee.getSalary()) {
+                maxEmployee = employee;
+            }
+        }
+        return "Cотрудник с максимальной зарплатой: " + maxEmployee;
+    }
+
+    public static String averageSalary(Employee[] emp) {
+        int sum = 0;
+        double average = 0;
+        for (Employee employee : emp) {
+            sum = sum + employee.getSalary();
+            average = (double) sum / emp.length;
+        }
+        return "Cреднее значение зарплат: " + average;
+    }
+
+    public static void name(Employee[] emp) {
+        for (Employee employee : emp) {
+            System.out.println(employee.getNick());
+        }
     }
 }
