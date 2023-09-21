@@ -33,7 +33,7 @@ public class Employee {
     }
 
     public int getId() {
-        return countId;
+        return id;
     }
 
     @Override
